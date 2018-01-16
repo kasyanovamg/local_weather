@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 function geolocator()  {
   if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -11,16 +13,15 @@ function geolocator()  {
 
 $.getJSON(urlString, function(json) {
 	console.log(json);
+	var temperature = $("#temperature");
    		$("#city").html(json.name  + ", " + json.sys.country);
    		$("#status").html(json.weather["0"].description);
-   		$("#temperature").html(json.main.temp);
+   		temperature.html(json.main.temp);
    		var icon = "<img src=" + json.weather["0"].icon + ">"; 
    		$("#icon").html(icon);
-
-   		$("#c-f").on("click", function() {
-   			$(this).text($(this).text() == 'F' ? 'C' : 'F');
-  			});
+   		celToFar();
 	});
+
 
 
 
@@ -33,3 +34,29 @@ $.getJSON(urlString, function(json) {
 
 
 geolocator();
+
+function celToFar() {
+	var unitTemp = $("#c-f-button");
+	var temperature = $("#temperature");
+	temperature.text(temperature.text() + " " + String.fromCharCode(176));
+	unitTemp.text("C");
+
+	unitTemp.on("click", function() {
+		unitTemp.text($(this).text() == "F" ? "C" : "F");
+		if (unitTemp.text() == 'F' ) {
+			var fahrenheit = Math.round(parseInt(temperature.text()) * 9/5 + 32);
+			temperature.text(fahrenheit  + " " + String.fromCharCode(176));
+		} else {
+			var celsius = Math.round((parseInt(temperature.text()) - 32) * 5/9);
+			temperature.text(celsius  + " " + String.fromCharCode(176));
+		}
+  			});
+}
+
+
+
+
+
+
+
+});

@@ -1,3 +1,11 @@
+#status {
+	display:inline-block}
 #status:first-letter {
-	text-transform:capitalize;
+	text-transform: uppercase}
+#c-f-button {
+	cursor: pointer;
+}
+.container {
+	width: 20%;
+	margin: 0 auto;
 }
