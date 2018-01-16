@@ -4,17 +4,32 @@
 	<title>Local Weather</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<!-- 	google font -->
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+<!-- 	font awesome -->
+	<script src="https://use.fontawesome.com/67ad33a0da.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div class="container">
-	<div><span id="city"></span></div>
-	<div><span id="temperature"></span><button id="c-f-button"></button>
-	<div><span id="status"></span></div>
-	<div><span id="icon"></span></div>
-</div>
-
-
+	<div class="header"><i class="fa fa-sun-o" aria-hidden="true"></i>  Weather App  <i class="fa fa-snowflake-o" aria-hidden="true"></i></div>
+	
+	<div class="container">
+		<div>
+			<i class="fa fa-globe" aria-hidden="true"></i>
+			<span id="city">Please,</span>
+		</div>
+		<div>
+			<i class="fa fa-thermometer-quarter" aria-hidden="true"></i> 
+			<span id="temperature">Allow geolocation</span>
+			<button id="c-f-button">!</button>
+		</div>
+		<div>
+			<span id="status"></span>
+		</div>
+		<div>
+			<span id="icon"></span>
+		</div>
+	
 	<script src="script.js"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ $.getJSON(urlString, function(json) {
 	console.log(json);
 	var temperature = $("#temperature");
    		$("#city").html(json.name  + ", " + json.sys.country);
-   		$("#status").html(json.weather["0"].description);
+   		$("#status").html(json.weather["0"].main);
    		temperature.html(json.main.temp);
    		var icon = "<img src=" + json.weather["0"].icon + ">"; 
    		$("#icon").html(icon);
@@ -52,11 +52,6 @@ function celToFar() {
 		}
   			});
 }
-
-
-
-
-
 
 
 });
